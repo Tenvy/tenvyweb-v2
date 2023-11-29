@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 12, 12, 12;
+  --background-end-rgb: 12, 12, 12;
+}
+
+html {
+  scroll-behavior: smooth;
+  letter-spacing: 0.3px;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: radial-gradient(
+    ellipse 50% 80% at 50% -30%,
+    rgb(45 212 191 / 15%) 0%,
+    rgb(8 0 0 / 0%)
+  )
+    rgb(var(--background-start-rgb));
+
+  background-repeat: no-repeat;
+}
+
+input,
+textarea,
+button,
+select,
+div,
+a {
+  -webkit-tap-highlight-color: transparent;
+}

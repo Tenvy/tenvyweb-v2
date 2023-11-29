@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model users {
+  uuid         String    @id @unique @default(uuid())
+  username     String    @unique
+  nickname     String
+  email        String    
+  password     String
+  role         String
+  profileImage String?
+  blogs        blogs[]
+  project      projects[]
+}
+
+model blogs {
+  id          String   @id @unique @default(cuid())
+  title       String   @unique
+  description String
+  contnet     String
+  images      String[]
+  publisher   users    @relation(fields: [usersUuid], references: [uuid])
+  createdate  DateTime @default(now())
+  usersUuid   String
+}
+
+model projects {
+  id          String   @id @unique @default(cuid())
+  title       String   @unique
+  description String
+  content     String?
+  images      String[]
+  techstack   techOnProject[]
+  siteUrl     String?
+  sourceUrl   String?
+  publisher   users    @relation(fields: [usersUuid], references: [uuid])
+  createdate  DateTime @default(now())
+  usersUuid   String
+}
+
+model technology {
+  id          String  @id @unique @default(cuid())
+  tech        String
+  images      String?
+  project     techOnProject[]
+}
+
+model techOnProject {
+  project     projects   @relation(fields: [projectId], references: [id])
+  projectId   String
+  technology  technology  @relation(fields: [technologyId], references: [id])
+  technologyId  String
+
+  @@id([projectId, technologyId])
+}
