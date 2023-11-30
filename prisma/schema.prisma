@@ -27,7 +27,7 @@ model blogs {
   id          String   @id @unique @default(cuid())
   title       String   @unique
   description String
-  contnet     String
+  content     String
   images      String[]
   publisher   users    @relation(fields: [usersUuid], references: [uuid])
   createdate  DateTime @default(now())
@@ -39,8 +39,8 @@ model projects {
   title       String   @unique
   description String
   content     String?
-  images      String[]
-  techstack   techOnProject[]
+  images      String
+  techstack   projectTech[]
   siteUrl     String?
   sourceUrl   String?
   publisher   users    @relation(fields: [usersUuid], references: [uuid])
@@ -52,14 +52,15 @@ model technology {
   id          String  @id @unique @default(cuid())
   tech        String
   images      String?
-  project     techOnProject[]
+  projects    projectTech[]
 }
 
-model techOnProject {
-  project     projects   @relation(fields: [projectId], references: [id])
-  projectId   String
-  technology  technology  @relation(fields: [technologyId], references: [id])
-  technologyId  String
+model projectTech {
+  projectId  String
+  project    projects @relation(fields: [projectId], references: [id])
+  
+  techId     String
+  tech       technology @relation(fields: [techId], references: [id])
 
-  @@id([projectId, technologyId])
+  @@id([projectId, techId])
 }
