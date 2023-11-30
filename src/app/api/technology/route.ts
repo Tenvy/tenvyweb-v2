@@ -16,3 +16,12 @@ export async function POST(request: Request) {
         return NextResponse.json(error)
     }
 }
+
+export async function GET() {
+    try {
+        const technologies = await prisma.technology.findMany()
+        return NextResponse.json(technologies)
+    } catch (error) {
+        return NextResponse.json(error)
+    }    
+}
