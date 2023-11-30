@@ -42,6 +42,11 @@ export async function PATCH(
                 return NextResponse.json({ msg: "Project title is already exists!" });
         }
 
+        const techStackSet = new Set(techStack?.map((tech) => tech.id));
+        if (techStack && techStack.length !== techStackSet.size) {
+            return NextResponse.json({ msg: "Duplicate values in techStack" });
+        }
+
         await prisma.projectTech.deleteMany({
             where: {
                 projectId: id,
