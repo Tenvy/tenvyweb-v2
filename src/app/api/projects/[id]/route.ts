@@ -2,7 +2,7 @@ import { projectType } from "@/types/projects";
 import prisma from "@/utils/db";
 import { NextResponse } from "next/server";
 
-export async function GET(context: { params: { id: string } }) {
+export async function GET(request:Request, context: { params: { id: string } }) {
     const id = context.params.id;
     try {
         const project = await prisma.projects.findUnique({
