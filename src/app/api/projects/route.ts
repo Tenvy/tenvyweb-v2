@@ -24,7 +24,12 @@ export async function POST(request: Request) {
             }
         })
         if (project) return NextResponse.json({msg: "Project sudah ada"})
-        
+
+        const techStackSet = new Set(techStack?.map((tech) => tech.id));
+        if (techStack && techStack.length !== techStackSet.size) {
+            return NextResponse.json({ msg: "Duplicate values in techStack" });
+        }
+
         const created = await prisma.projects.create({
             data: {
                 title,
