@@ -58,7 +58,7 @@ export async function PATCH( request:Request, context: { params: { id: string } 
                 }
             }
         })
-        return NextResponse.json({msg: "Project updated successfully"})
+        return NextResponse.json({msg: "Project updated successfully", project})
     } catch (error) {
         return NextResponse.json({msg: "Error updating Project", error})
     }
