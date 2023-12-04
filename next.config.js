@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        disableStaticImages: true,
+        disableStaticImages: false,
         remotePatterns: [
             {
                 protocol: "https", 
@@ -10,6 +10,18 @@ const nextConfig = {
             {
                 protocol: "https", 
                 hostname: "i.pinimg.com" 
+            },
+            {
+                protocol: "https",
+                hostname: "e1.pxfuel.com"
+            },
+            {
+                protocol: "https",
+                hostname: "www.datocms-assets.com"
+            },
+            {
+                protocol: "https",
+                hostname: "upload.wikimedia.org"
             }
         ]
     }
