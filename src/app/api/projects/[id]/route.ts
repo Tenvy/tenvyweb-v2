@@ -9,8 +9,11 @@ export async function GET(request:Request, context: { params: { id: string } }) 
             where: {
                 id,
             },
+            include: {
+                techstack: true
+            }
         });
-        if (!project) return NextResponse.json({ msg: "project not found" });
+        if (!project) return NextResponse.json({ msg: "project not found"});
         return NextResponse.json(project);
     } catch (error) {
         return NextResponse.json({ msg: "failed to get project", error });
