@@ -23,6 +23,12 @@ model users {
   project      projects[]
 }
 
+model introduction {
+  title       String @unique
+  information String[]
+  description String
+}
+
 model blogs {
   id          String   @id @unique @default(cuid())
   title       String   @unique
