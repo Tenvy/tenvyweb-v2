@@ -2,6 +2,19 @@ import { introduction } from "@/types/introduction"
 import prisma from "@/utils/db"
 import { NextResponse } from "next/server"
 
+export async function GET(request:Request, context: { params: { id: string } }) {
+    const id = context.params.id
+    try {
+        const response = await prisma.introduction.findUnique({
+            where: {
+                id
+            }
+        })
+        return NextResponse.json(response)
+    } catch (error) {
+        return NextResponse.json(error)
+    }
+}
 export async function PATCH(request:Request, context: {params: { id: string}}) {
     const { title, information, description }:introduction = await request.json()
     const id = context.params.id
