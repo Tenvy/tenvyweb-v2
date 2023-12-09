@@ -1,7 +1,6 @@
 import prisma from "@/utils/db"
 import { projectType } from "@/types/projects"
 import { NextResponse } from "next/server"
-import { revalidatePath } from "next/cache"
 
 export async function GET(request: Request) {
     try {

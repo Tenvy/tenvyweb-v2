@@ -66,6 +66,6 @@ export async function GET(request: Request) {
     }
     return NextResponse.json(owner)
   } catch (error) {
-    return NextResponse.json("")
+    return NextResponse.json({msg: "Something Wrong", error})
   }
 }
