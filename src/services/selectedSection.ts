@@ -1,5 +1,10 @@
 import prisma from "@/utils/db";
 
+export const getSelectedIdBySection = async (section: string) => {
+    const response = await fetch(process.env.SITE_URL + `/api/section/${section}` , {method: 'GET'})
+    return response.json()
+}
+
 export async function Check(params: string) {
     const pathname = params.split('/').pop()
     if (pathname === undefined) return null
