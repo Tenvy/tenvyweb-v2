@@ -1,3 +1,4 @@
+import EmptyState from "@/components/elements/EmptyState";
 import { getInroductionById } from "@/services/introduction";
 import { getSelectedIdBySection } from "@/services/selectedSection"
 
@@ -16,6 +17,10 @@ interface selectedSection {
 const Introduction = async () => {
   const id:selectedSection = await getSelectedIdBySection("introduction");
   const data:production = await getInroductionById(id.selectedId);
+
+  if (!data) {
+    return <EmptyState message="No Introduction Data"/>
+  }
 
   return (
     <section className='bg-cover bg-no-repeat '>
