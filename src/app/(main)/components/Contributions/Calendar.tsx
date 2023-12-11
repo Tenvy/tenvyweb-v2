@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Contribution {
   date: string;
@@ -33,6 +33,13 @@ const Calendar = ({ data }: CalendarProps) => {
     count: null,
     date: null,
   });
+
+  const [isInitialRender, setIsInitialRender] = useState(true);
+
+  useEffect(() => {
+    setIsInitialRender(false);
+  }, []);
+
 
   const weeks = data?.weeks ?? [];
   const months =
@@ -91,9 +98,10 @@ const Calendar = ({ data }: CalendarProps) => {
                       width: '12px',
                       borderRadius: '2px',
                       backgroundColor: backgroundColor ? backgroundColor : '#262626',
-                      transform: `translateY(0)`,
-                      transition: `opacity 0.5s ease-in-out, transform 0.5s ease-in-out ${getRandomDelayAnimate}s`,
+                      opacity: isInitialRender ? 0 : 1,
+                      // transition: `opacity 0.5s ease-in-out, transform 0.5s ease-in-out ${Math.floor(getRandomDelayAnimate)}s`,
                     }}
+                    className={`transition-all duration-500 ease-in-out delay-[${getRandomDelayAnimate.toFixed(0)}s]`}
                     onMouseEnter={() =>
                       setSelectContribution({
                         count: contribution.contributionCount,
