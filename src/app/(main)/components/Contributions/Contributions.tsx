@@ -16,7 +16,6 @@ type ContributionsProps = {
 const Contributions = async ({ username }: ContributionsProps) => {
   const { data } = await fetchGithubData()
 
-    console.log(data)
   const contributionCalendar =
     data?.contributionsCollection?.contributionCalendar;
 
