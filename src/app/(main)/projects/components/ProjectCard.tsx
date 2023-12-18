@@ -15,7 +15,7 @@ const ProjectCard = async ({
 
   return (
     <NavigateLink href={`/projects/${id}`}>
-      <Card className='group relative border dark:border-neutral-900 lg:hover:scale-[102%] cursor-pointer'>
+      <Card className='group relative border border-neutral-900 lg:hover:scale-[102%] cursor-pointer'>
         <div className='relative'>
           <Image
             src={images}
@@ -31,11 +31,11 @@ const ProjectCard = async ({
         </div>
         <div className='p-5 space-y-2'>
           <div className='flex justify-between'>
-            <div className='text-lg font-sora cursor-pointer text-neutral-700 dark:text-neutral-300 lg:group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-all duration-300'>
+            <div className='text-lg font-sora cursor-pointer text-neutral-300 lg:group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-all duration-300'>
               {title}
             </div>
           </div>
-          <p className='text-neutral-700 dark:text-neutral-400 text-[15px] leading-relaxed'>
+          <p className='text-neutral-400 text-[15px] leading-relaxed'>
             {description}
           </p>
           <div className='flex flex-wrap items-center gap-3 pt-2'>
