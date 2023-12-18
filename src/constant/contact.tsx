@@ -18,9 +18,9 @@ export const SOCIAL_MEDIA: MenuItemProps[] = [
       isShow: true,
       isExternal: true,
       eventName: 'Contact: Email',
-      className: '!bg-green-600 border border dark:border-neutral-700',
+      className: '!bg-green-600 border border-neutral-700',
       type: 'Link',
-    },
+    }, 
   
     {
       title: 'Linkedin',
@@ -29,7 +29,7 @@ export const SOCIAL_MEDIA: MenuItemProps[] = [
       isShow: true,
       isExternal: true,
       eventName: 'Social: Linkedin',
-      className: '!bg-blue-500 border border dark:border-neutral-700',
+      className: '!bg-blue-500 border border-neutral-700',
       type: 'Link',
     },
     {
@@ -39,7 +39,7 @@ export const SOCIAL_MEDIA: MenuItemProps[] = [
       isShow: true,
       isExternal: true,
       eventName: 'Social: Twitter',
-      className: '!bg-sky-500 border border dark:border-neutral-700',
+      className: '!bg-sky-500 border border-neutral-700',
       type: 'Link',
     },
     {
@@ -49,7 +49,7 @@ export const SOCIAL_MEDIA: MenuItemProps[] = [
       isShow: true,
       isExternal: true,
       eventName: 'Social: Instagram',
-      className: '!bg-orange-700 border border dark:border-neutral-700',
+      className: '!bg-orange-700 border border-neutral-700',
       type: 'Link',
     },
     {
@@ -59,7 +59,7 @@ export const SOCIAL_MEDIA: MenuItemProps[] = [
       isShow: true,
       isExternal: true,
       eventName: 'Social: Github',
-      className: '!bg-black border border dark:border-neutral-700',
+      className: '!bg-black border border-neutral-700',
       type: 'Link',
     },
   ];

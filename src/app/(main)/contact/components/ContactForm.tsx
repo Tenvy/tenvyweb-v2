@@ -94,7 +94,7 @@ const ContactForm = () => {
           required
         />
         <Button
-          className={'py-2.5 bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-950 flex justify-center hover:dark:bg-neutral-50 hover:bg-neutral-900 hover:scale-[101%]'}
+          className={'py-2.5 bg-neutral-600 text-neutral-950 flex justify-center hover:bg-neutral-50 hover:scale-[101%]'}
           type='submit'
           icon={<></>}
           data-umami-event='Send Contact Message'
@@ -104,7 +104,7 @@ const ContactForm = () => {
         </Button>
       </div>
 
-      <div className='flex items-center gap-2 dark:text-neutral-400 my-5'>
+      <div className='flex items-center gap-2 text-neutral-400 my-5'>
         <ClockIcon />
         <div className='text-sm'>
           Will respond at my earliest opportunity.

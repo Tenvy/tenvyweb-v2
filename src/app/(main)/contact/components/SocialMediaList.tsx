@@ -11,7 +11,7 @@ const SocialMediaList = () => {
       <div className='flex flex-col md:flex-row justify-between gap-3'>
         {SOCIAL_MEDIA?.map((item, index: number) => (
           <Button
-            className={`w-full md:w-1/5 flex justify-center items-center hover:scale-105 transition-all duration-300 ${item?.className}`}
+            className={`${item?.className} w-full md:w-1/5 flex justify-center items-center hover:scale-105 transition-all duration-300`}
             key={index}
             onClick={() => handleAction(item?.href)}
             icon={item?.icon}
