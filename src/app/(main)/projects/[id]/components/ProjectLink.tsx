@@ -21,9 +21,9 @@ const ProjectLink = ({ title, link_github, link_demo }: ProjectLinkProps) => {
 
     return (
       <Link href={url} target='_blank' passHref data-umami-event={eventName}>
-        <div className='flex gap-2 items-center font-medium text-neutral-700 dark:text-neutral-300 '>
+        <div className='flex gap-2 items-center font-medium text-neutral-300 '>
           {icon}
-          <span className='text-[15px] dark:text-teal-500 hover:dark:text-teal-400 transition-all duration-300'>
+          <span className='text-[15px] text-teal-500 hover:text-teal-400 transition-all duration-300'>
             {text}
           </span>
         </div>
@@ -41,7 +41,7 @@ const ProjectLink = ({ title, link_github, link_demo }: ProjectLinkProps) => {
         />
       )}
       {link_github && link_demo && (
-        <span className='text-neutral-400 dark:text-neutral-600'>|</span>
+        <span className='text-neutral-600'>|</span>
       )}
       {link_demo && (
         <LinkComponent
