@@ -76,3 +76,28 @@ model projectTech {
 
   @@id([projectId, techId])
 }
+
+model about {
+  id          String  @id @unique @default(cuid())
+  story       String @unique
+  isSelected  Boolean
+}
+
+model career {
+  company   String  @unique
+  images    String?
+  location  String
+  position  String
+  startDate DateTime
+  endDate   DateTime
+}
+
+model education {
+  school    String  @unique
+  images    String?
+  location  String
+  degree    String?
+  major     String
+  startDate DateTime
+  endDate   DateTime?
+}
