@@ -22,6 +22,14 @@ const nextConfig = {
             {
                 protocol: "https",
                 hostname: "upload.wikimedia.org"
+            },
+            {
+                protocol: "https",
+                hostname: "avatars.githubusercontent.com"
+            },
+            {
+                protocol: "https",
+                hostname: "2.bp.blogspot.com"
             }
         ]
     }

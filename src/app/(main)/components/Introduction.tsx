@@ -16,7 +16,7 @@ interface selectedSection {
 }
 const Introduction = async () => {
   const id:selectedSection = await getSelectedIdBySection("introduction");
-  const data:production = await getInroductionById(id.selectedId);
+  const data:production = await getInroductionById(id?.selectedId);
 
   if (!data) {
     return <EmptyState message="No Introduction Data"/>
