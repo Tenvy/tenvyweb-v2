@@ -32,7 +32,7 @@ export const MENU_ITEMS: MenuItemProps[] = [
   },
   {
     title: 'Blog',
-    href: '/blog',
+    href: '/blogs',
     icon: <BlogIcon size={iconSize} />,
     isShow: true,
     isExternal: false,
