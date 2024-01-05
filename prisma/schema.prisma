@@ -39,9 +39,12 @@ model blogs {
   id          String   @id @unique @default(cuid())
   title       String   @unique
   description String
-  content     String
-  images      String[]
+  content     String?
+  images      String
   publisher   users    @relation(fields: [usersUuid], references: [uuid])
+  views       Int
+  timeRead    Int
+  tags        String[]
   createdate  DateTime @default(now())
   usersUuid   String
 }
