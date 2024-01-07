@@ -94,7 +94,7 @@ const ContactForm = () => {
           required
         />
         <Button
-          className={'py-2.5 bg-neutral-600 text-neutral-950 flex justify-center hover:bg-neutral-50 hover:scale-[101%]'}
+          className={'py-2.5 !bg-neutral-600 !text-neutral-950 flex justify-center hover:!bg-neutral-50 hover:scale-[101%]'}
           type='submit'
           icon={<></>}
           data-umami-event='Send Contact Message'
