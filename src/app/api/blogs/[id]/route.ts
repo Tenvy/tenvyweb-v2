@@ -1,5 +1,4 @@
 import { BlogItemProps } from "@/types/blog";
-import { projectType } from "@/types/projects";
 import prisma from "@/utils/db";
 import { NextResponse } from "next/server";
 
