@@ -21,4 +21,4 @@ export default withAuth(
     }
 )
 
-export const config = { matcher: ["/backoffice/:path*"] };
+export const config = { matcher: ["/backoffice/:path* /api/:path*"] };
