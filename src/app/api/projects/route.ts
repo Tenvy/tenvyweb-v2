@@ -11,7 +11,7 @@ export async function GET(request: Request) {
         })
         return NextResponse.json(projects)
     } catch (error) {
-        console.log(error)
+        return NextResponse.json(error)
     }
 }
 
@@ -52,6 +52,6 @@ export async function POST(request: Request) {
 
         return NextResponse.json({created})
     } catch (error) {
-        console.log(error)
+        return NextResponse.json({msg: "Something went wrong", error})
     }
 }
