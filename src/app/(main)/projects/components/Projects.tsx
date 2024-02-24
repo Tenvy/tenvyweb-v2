@@ -14,11 +14,11 @@ const Projects = ({ projects }: ProjectsComponentProps) => {
   }
 
   return (
-      <div className='grid sm:grid-cols-2 gap-5 pt-2 px-1'>
-        {projects.map((project, index) => (
-            <ProjectCard {...project} key={index}/>
-        ))}
-      </div>
+    <div className='grid sm:grid-cols-2 gap-5 pt-2 px-1'>
+      {projects?.map((project, index) => (
+        <ProjectCard {...project} key={index} />
+      ))}
+    </div>
   );
 };
 
