@@ -3,8 +3,6 @@ import bcrypt from "bcrypt";
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(process.env.REACT_APP_SUPABASE_URL ?? '', process.env.REACT_APP_ANON_KEY ?? '');
-
 export const POST = async (request: Request) => {
   const owner = {
     username: process.env.OWNER_USERNAME,
@@ -19,8 +17,6 @@ export const POST = async (request: Request) => {
   
     const ownerCheck = await prisma.users.findFirst({
       where: {
-        username: owner.username,
-        password: owner.password,
         role: "owner",
       },
     });
