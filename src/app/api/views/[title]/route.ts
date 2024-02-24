@@ -2,18 +2,18 @@ import prisma from "@/utils/db"
 import { NextResponse } from "next/server"
 
 export async function PATCH(request:Request,  context: { params: { title: string } }) {
-    const title = context.params.title
+    const id = context.params.title
 
     try {
         const check = await prisma.blogs.findUnique({
             where: {
-                title
+                id
             }
         })
         if (!check) return NextResponse.json({msg: "Blogs Not Exists!"})
         const response = await prisma.blogs.update({
             where: {
-                title
+                id
             },
             data: {
                 views: {
