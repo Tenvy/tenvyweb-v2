@@ -5,6 +5,9 @@ import InfiniteLoopSlider from '@/components/elements/InfiniteLoopSlider';
 import SectionHeading from '@/components/elements/SectionHeading';
 import SectionSubHeading from '@/components/elements/SectionSubHeading';
 import Image from 'next/image';
+import { ReactNode, useEffect, useState } from 'react';
+import { technology } from '@/types/technology';
+import { shuffle } from 'lodash';
 
 type Technology = {
     tech: string;
@@ -19,11 +22,18 @@ const Tag = ({ icon, title }: { icon: string; title: string }) => (
 );
 
 const Skills = ({ tech }: { tech: Technology[] }) => {
+  const [shuffledSkills, setShuffledSkills] = useState<technology[]>([]);
+
+  useEffect(() => {
+    const shuffledArray = shuffle(tech);
+    setShuffledSkills(shuffledArray);
+  }, [tech]);
 
   const sliders = Array.from({ length: 3 }, (_, index) => {
+    const sliderSkills = [...shuffledSkills].sort(() => Math.random() - 0.5);
     return (
       <InfiniteLoopSlider key={index} isReverse={index === 1}>
-        {tech.map((res:any, index: number) => (
+        {sliderSkills.map((res:any, index: number) => (
           <Tag key={index} icon={res.images} title={res.tech} />
         ))}
       </InfiniteLoopSlider>
