@@ -3,7 +3,7 @@ import Link from "next/link"
 const backofficeSidebar = () => {
   return (
     <header className='w-[20%] h-[100vh]'>
-      <div className='text-2xl font-bold flex items-center justify-center h-[100px]'>
+      <div className='text-2xl font-bold flex justify-center items-center text-center h-[100px]'>
         <Link href="/backoffice">Tenvy Backoffice</Link>
       </div>
       <div className='flex w-full justify-center'>
