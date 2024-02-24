@@ -1,20 +1,25 @@
 import axios from "axios";
-import { NextResponse } from "next/server";
+
+interface userType {
+  username: string;
+  nickname: string;
+  email: string;
+  password: string;
+}
 
 const getUserId = (username: string) => {
-    return axios.get(`/api/user/${username}`)
+  return axios.get(`/api/user/${username}`)
 }
 
-const updateUsername = async (username: string) => {
-    const userCheck = await axios.get(`/api/user/${username}`)
-    if(userCheck) {
-        return NextResponse.json("User is already exist!")
-    }
-    return axios.patch(`/api/user/${username}`, { username })
+const updateUser = (data: userType, image: any) => {
+  const formData = new FormData()
+  formData.append('nickname', data.nickname);
+  formData.append('email', data.email);
+  formData.append('password', data.password);
+  formData.set('image', image);
+
+  return axios.patch(`/api/user`, formData)
+  
 }
 
-const updateEmail = (username:string, email: string) => {
-    return axios.patch(`/api/user/${username}`, { email })
-}
-
-export { getUserId, updateUsername, updateEmail }
+export { getUserId, updateUser }
