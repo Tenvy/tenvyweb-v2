@@ -1,5 +1,5 @@
 export type technology = {
-    id: string;
+    id?: string;
     tech: string;
     images?: string;
 }
