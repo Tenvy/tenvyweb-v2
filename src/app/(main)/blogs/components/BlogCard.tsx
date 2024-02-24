@@ -31,7 +31,7 @@ const BlogCard = ({
   const timeReadMinute = Math.floor(timeRead / 60)
 
   return (
-    <Link href={`/blog/${id}`}>
+    <Link href={`/blogs/${id}`}>
       <Card
         className={`group relative flex flex-col border dark:border-neutral-800 shadow-sm rounded-lg h-[400px] w-full`}
         onMouseEnter={() => setIsHovered(true)}
@@ -86,7 +86,7 @@ const BlogCard = ({
                 <div className={`flex gap-1 items-center ${isHovered ? 'hidden' : 'block'}`}>
                   <ViewIcon size={14} />
                   <span className='text-xs font-medium ml-0.5'>
-                    {views.toLocaleString()} VIEWS
+                    {(views / 2).toLocaleString()} VIEWS
                   </span>
                 </div>
                 <div className={`flex gap-1 items-center ${isHovered ? 'hidden' : 'block'}`}>
