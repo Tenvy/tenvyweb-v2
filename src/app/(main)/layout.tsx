@@ -7,6 +7,7 @@ import { getServerSession } from 'next-auth'
 import { Suspense } from 'react'
 import { NavigationEvents } from '@/components/elements/ProgressBar'
 import Container from '@/components/elements/Container'
+import { authOptions } from '@/lib/AuthOptions'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +22,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
-  const session = getServerSession()
+  const session = await getServerSession(authOptions)
 
   return (
     <html lang="en">
