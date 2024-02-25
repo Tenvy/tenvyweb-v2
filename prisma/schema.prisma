@@ -1,21 +1,18 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider     = "postgresql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
 model users {
-  uuid         String    @id @unique @default(uuid())
-  username     String    @unique
+  uuid         String     @id @unique @default(uuid())
+  username     String     @unique
   nickname     String
-  email        String    
+  email        String
   password     String
   role         String
   profileImage String?
@@ -24,7 +21,7 @@ model users {
 }
 
 model introduction {
-  id          String  @id @unique @default(cuid())
+  id          String   @id @unique @default(cuid())
   title       String
   information String[]
   description String
@@ -41,53 +38,53 @@ model blogs {
   description String
   content     String?
   images      String
-  publisher   users    @relation(fields: [usersUuid], references: [uuid])
-  views       Int
-  timeRead    Int
-  tags        String[]
   createdate  DateTime @default(now())
   usersUuid   String
+  tags        String[]
+  timeRead    Int
+  views       Int
+  publisher   users    @relation(fields: [usersUuid], references: [uuid])
 }
 
 model projects {
-  id          String   @id @unique @default(cuid())
-  title       String   @unique
+  id          String        @id @unique @default(cuid())
+  title       String        @unique
   description String
   content     String?
   images      String
-  techstack   projectTech[]
   siteUrl     String?
   sourceUrl   String?
-  publisher   users    @relation(fields: [usersUuid], references: [uuid])
-  createdate  DateTime @default(now())
+  createdate  DateTime      @default(now())
   usersUuid   String
+  techstack   projectTech[]
+  publisher   users         @relation(fields: [usersUuid], references: [uuid])
 }
 
 model technology {
-  id          String  @id @unique @default(cuid())
-  tech        String
-  images      String?
-  projects    projectTech[]
+  id       String        @id @unique @default(cuid())
+  tech     String
+  images   String?
+  projects projectTech[]
 }
 
 model projectTech {
-  projectId  String
-  project    projects @relation(fields: [projectId], references: [id])
-  
-  techId     String
-  tech       technology @relation(fields: [techId], references: [id])
+  projectId String
+  techId    String
+  project   projects   @relation(fields: [projectId], references: [id])
+  tech      technology @relation(fields: [techId], references: [id])
 
   @@id([projectId, techId])
 }
 
 model about {
-  id          String  @id @unique @default(cuid())
-  story       String @unique
-  isSelected  Boolean
+  id         String  @id @unique @default(cuid())
+  story      String  @unique
+  isSelected Boolean
 }
 
 model career {
-  company   String  @unique
+  id        String  @id @unique @default(cuid())
+  company   String   @unique
   images    String?
   location  String
   position  String
@@ -96,11 +93,12 @@ model career {
 }
 
 model education {
-  school    String  @unique
-  images    String?
+  id        String  @id @unique @default(cuid())
+  school    String    @unique
   location  String
   degree    String?
   major     String
   startDate DateTime
   endDate   DateTime?
+  images    String?
 }
