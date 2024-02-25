@@ -8,6 +8,25 @@ export async function POST(request: Request) {
     const { formData } = await request.json()
     const updatedFormData = new FormData()
 
+    const sendMessage = async (formData: FormData) => {
+      const response = await axios.post(FORM_URL, formData);
+      const status = response?.status;
+    
+      if (status >= 400) {
+        return {
+          status,
+          message: response?.statusText,
+        };
+      }
+    
+      const data = response.data;
+    
+      return {
+        status,
+        data,
+      };
+    };
+
     try {
         updatedFormData.append('access_key', FORM_API_KEY);
 
@@ -22,22 +41,3 @@ export async function POST(request: Request) {
         return NextResponse.json(error)
     }
 }
-
-export const sendMessage = async (formData: FormData) => {
-    const response = await axios.post(FORM_URL, formData);
-    const status = response?.status;
-  
-    if (status >= 400) {
-      return {
-        status,
-        message: response?.statusText,
-      };
-    }
-  
-    const data = response.data;
-  
-    return {
-      status,
-      data,
-    };
-  };
