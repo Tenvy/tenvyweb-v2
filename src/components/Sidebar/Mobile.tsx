@@ -8,7 +8,7 @@ import { MENU_ITEMS } from './MenuProps'
 import Breakline from '../elements/Breakline';
 
 const Mobile = ({ ownerData }: any) => {
-    const [expandMenu, setExpandMenu] = useState<boolean>(true);
+    const [expandMenu, setExpandMenu] = useState<boolean>(false);
 
     return (
         <>
@@ -35,9 +35,9 @@ const Mobile = ({ ownerData }: any) => {
             <div>
                 {expandMenu && (
                     <>
-                        <Breakline />
-                        <Menu list={MENU_ITEMS} className='!flex' />
-                        <Breakline />
+                        <Breakline className='!flex lg:!hidden'/>
+                        <Menu list={MENU_ITEMS} className='!flex lg:!hidden' />
+                        <Breakline className='!flex lg:!hidden'/>
                     </>
                 )}
             </div>
