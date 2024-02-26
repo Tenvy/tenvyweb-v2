@@ -6,9 +6,9 @@ type MenuProps = {
   list: MenuItemProps[];
 };
 
-const Menu = ({list}:MenuProps) => {
+const Menu = ({list, className}:any) => {
     return (
-        <div className='flex flex-col space-y-1'>
+        <div className={`lg:flex flex-col space-y-1 hidden ${className}`}>
             {list?.map((item: MenuItemProps, index: number) => (
                 <MenuItem key={index} {...item} />
             ))}
