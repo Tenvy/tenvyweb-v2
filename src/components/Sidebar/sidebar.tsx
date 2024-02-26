@@ -11,10 +11,14 @@ const Sidebar = async () => {
     <header className='lg:w-1/5'>
       <div>
         <div className="sticky transition-all duration-300 top-0 z-10 flex flex-col lg:py-8">
-          <Profile/>
-          <Breakline/>
-          <Menu list={filteredMenu}/>
-          <Breakline/>
+          <Profile />
+          <div className='hidden lg:block'>
+            <Breakline />
+          </div>
+          <Menu list={filteredMenu} />
+          <div className='hidden lg:block'>
+            <Breakline />
+          </div>
         </div>
       </div>
     </header>
