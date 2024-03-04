@@ -26,7 +26,7 @@ const Introduction = async () => {
     <section className='bg-cover bg-no-repeat '>
       <div className='space-y-3'>
         <div className='flex gap-2 text-2xl lg:text-3xl font-medium font-sora'>
-          <h1>{data?.title}</h1>{' '}
+          <h1>{data?.title}</h1>
           <div className='ml-1 animate-waving-hand'>👋</div>
         </div>
         <div className='space-y-4'>
