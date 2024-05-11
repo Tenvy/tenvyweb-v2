@@ -12,6 +12,7 @@ const ProjectCard = async ({
   images,
   techstack
 }: ProjectItemProps) => {
+  const truncate = (input: string) => input?.length > 90 ? `${input.substring(0, 75)}...` : input;
 
   return (
     <NavigateLink href={`/projects/${id}`}>
@@ -36,7 +37,7 @@ const ProjectCard = async ({
             </div>
           </div>
           <p className='text-neutral-400 text-[15px] leading-relaxed'>
-            {description}
+            {truncate(description)}
           </p>
           <div className='flex flex-wrap items-center gap-3 pt-2'>
             <Stack techstack={techstack}/>
