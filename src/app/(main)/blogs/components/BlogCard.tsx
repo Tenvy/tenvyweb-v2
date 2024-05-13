@@ -86,7 +86,7 @@ const BlogCard = ({
                 <div className={`flex gap-1 items-center ${isHovered ? 'hidden' : 'block'}`}>
                   <ViewIcon size={14} />
                   <span className='text-xs font-medium ml-0.5'>
-                    {(views / 2).toLocaleString()} VIEWS
+                    {(views).toLocaleString()} VIEWS
                   </span>
                 </div>
                 <div className={`flex gap-1 items-center ${isHovered ? 'hidden' : 'block'}`}>
