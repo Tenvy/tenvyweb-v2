@@ -19,9 +19,7 @@ const BlogDetail = ({
 
   const timeReadMinute = Math.floor(timeRead / 60)
 
-  useEffect(()=>{
     updateViews(parseInt(id))
-  },[id])
 
   return (
     <>
@@ -30,7 +28,7 @@ const BlogDetail = ({
         comments_count={0}
         reading_time_minutes={timeReadMinute}
         published_at={createdate}
-        page_views_count={views / 2}
+        page_views_count={views}
       />
       <div className='space-y-6 leading-[1.8] dark:text-neutral-300 '>
         {content && <MDXComponent>{content}</MDXComponent>}
